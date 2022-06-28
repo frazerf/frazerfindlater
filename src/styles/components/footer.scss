@@ -1,0 +1,23 @@
+footer {
+    padding-bottom: 4.0rem;
+    @extend .p;
+    .nav {
+        &--footer {
+            ul {
+                display: flex;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                li {
+                    margin-right: 2.0rem;
+                    &:nth-last-of-type(1) {
+                        margin-right: 0;
+                    }
+                    a {
+                        color: $font-secondary;
+                    }
+                }
+            }
+        }
+    }
+}

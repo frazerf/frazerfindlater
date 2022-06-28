@@ -1,0 +1,79 @@
+.hero {
+    &--home {
+        height: 100vh;
+        display: flex;
+        position: relative;
+        .heading {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 2;
+            pointer-events: none;
+            .subline {
+                height: 100vh;
+                pointer-events: none;
+                h1 {
+                    pointer-events: auto;
+                }
+            }
+        }
+        article {
+            width: 33.333333333%;
+            position: relative;
+            a {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 2; 
+                &:hover {
+                    & + .img {
+                        .overlay {
+                            background: rgba($color: #000000, $alpha: 0);
+                        }
+                    }
+                }
+            }
+            .img {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                .gatsby-image-wrapper {
+                    height: 100%;
+                }
+                .overlay {
+                    background: rgba($color: #000000, $alpha: 0.5);
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    z-index: 1;
+                    top: 0;
+                    transition: all ease-in-out 300ms;
+                }
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    background-position: 50%;
+                }
+                
+            }
+            .content {
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                width: 100%;
+                padding: 3.2rem;
+            }
+        }
+    }
+    &--simple {
+        margin-top: 12.8rem;
+        margin-bottom: 6.4rem;
+    }
+
+    &--slim {
+        margin-top: 12.8rem;
+        margin-bottom: 2.4rem;
+    }
+}

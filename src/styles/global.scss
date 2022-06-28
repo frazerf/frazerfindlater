@@ -1,0 +1,20 @@
+/* Base Styles
+------------------*/
+@import "~bootstrap/scss/bootstrap";
+// Normalise
+@import "./vendor/normalise";
+
+// Base
+@import "base/variables";
+@import "base/base";
+@import "base/fonts";
+@import "base/typography";
+
+// Components
+@import "components/header";
+@import "components/footer";
+@import "components/hero";
+@import "components/utilities";
+@import "components/form";
+@import "components/btn";
+@import "components/main-content";
