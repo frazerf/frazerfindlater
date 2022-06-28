@@ -24,10 +24,11 @@ class Contact extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-12 col-md-9">
-                <form>
-                  <input type="text" placeholder="Name"/>
-                  <input type="text" placeholder="Email"/>
-                  <textarea placeholder="Message..."></textarea>
+                <form name="contact" netlify netlify-honeypot="bot-field" method="post" hidden>
+                  <input name="name" type="text" placeholder="Name"/>
+                  <input name="email" type="email" placeholder="Email"/>
+                  <textarea name="message" placeholder="Message..."></textarea>
+                  <input className="hidden" type="hidden" name="form-name" value="contact" />
                   <button className="btn" type="submit">Send</button>
                 </form>
               </div>
