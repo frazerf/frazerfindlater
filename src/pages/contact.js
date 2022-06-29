@@ -24,7 +24,7 @@ class Contact extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-12 col-md-9">
-                <form name="contact" method="POST" data-netlify="true">
+                <form name="contact" method="POST" data-netlify="true" action="/thanks/">
                   <input name="name" type="text" placeholder="Name"/>
                   <input name="email" type="email" placeholder="Email"/>
                   <textarea name="message" placeholder="Message..."></textarea>
