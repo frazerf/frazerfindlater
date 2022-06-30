@@ -16,6 +16,15 @@ class Thanks extends React.Component {
                 <p className="large mb-0">Contact</p>
                 <h2>Thanks</h2>
                 <p className="large">Just fill out the form below and I’ll be in touch as soon as possbile.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="hero spacer-section">
+          <div className="container">
+            <div className="row">
+              <div className="col-12 col-md-6">
                 <p><Link className="btn" to="/">Back home</Link></p>
               </div>
             </div>

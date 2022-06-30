@@ -46,7 +46,10 @@
 
 .content-meta {
     margin-top: 1.6rem;
-    margin-bottom: 4.8rem;
+    margin-bottom: 2.4rem;
+    @include media-breakpoint-up(md) {
+        margin-bottom: 4.8rem;
+    }
 }
 
 // Margins
@@ -64,9 +67,22 @@
 
 // Spacer
 .spacer-section {
-    margin-bottom: 12.8rem;
+    margin-bottom: 6.4rem;
+    @include media-breakpoint-up(md) {
+        margin-bottom: 12.8rem;
+    }
     &--small {
-        margin-bottom: 6.4rem;
+        margin-bottom: 3.2rem;
+        @include media-breakpoint-up(md) {
+            margin-bottom: 6.4rem;
+        }
+    }
+}
+
+.sm-spacer {
+    margin-top: 3.2rem;
+    @include media-breakpoint-up(md) {
+        margin-top: 0;
     }
 }
 
@@ -79,4 +95,23 @@
 
 .hidden {
     display: none;
+}
+
+.bg-project {
+    background: $bg-sub-nav;
+    padding-top: 6.4rem;
+    padding-bottom: 6.4rem;
+    @include media-breakpoint-up(md) {
+        padding-top: 12.8rem;
+        padding-bottom: 12.8rem;
+    }
+}
+
+.container {
+    padding-left: 2.0rem;
+    padding-right: 2.0rem;
+    @include media-breakpoint-up(md) {
+        padding-left: 2.0rem;
+        padding-right: 2.0rem;
+    }
 }

@@ -55,7 +55,10 @@ header {
     }
 
     .main-header {
-        padding-top: 2.4rem;
+        padding-top: 1.2rem;
+        @include media-breakpoint-up(md) {
+          padding-top: 2.4rem;
+        }
         .logo {
             font-family: $base-heading-font-family;
             font-size: 2.2rem;

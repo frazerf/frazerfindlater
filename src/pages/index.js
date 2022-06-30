@@ -35,7 +35,7 @@ class IndexPage extends React.Component {
                 <article key={node.slug}>
                   <Link to={'/photos/' + node.slug}></Link>
                   <div className="img">
-                  <GatsbyImage image={node.photo.gatsbyImageData} alt={'Picture of ' + node.location} />
+                    <GatsbyImage image={node.photo.gatsbyImageData} alt={'Picture of ' + node.location} />
                     <div className="overlay"></div>
                   </div>
                   <div className="content">
@@ -51,12 +51,14 @@ class IndexPage extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-12 col-md-5 align-self-center">
-                    <p className="large mb-4">{homepageMeta[0].aboutByline}</p>
+                    {homepageMeta[0].aboutByline !== null && (
+                      <p className="large mb-4">{homepageMeta[0].aboutByline}</p>
+                    )}
                     <h2>{homepageMeta[0].aboutHeading}</h2>
                     <p className="large">{homepageMeta[0].aboutContent.aboutContent}</p>
                   </div>
                 <div className="col-12 offset-md-1 col-md-6">
-                  <div className="img-square no-transition">
+                  <div className="img-square no-transition sm-spacer">
                     <GatsbyImage image={homepageMeta[0].aboutImage.gatsbyImageData} alt={projectItem[0].node.projectName + ' project image'} />
                   </div>
                 </div>
@@ -64,7 +66,7 @@ class IndexPage extends React.Component {
             </div>
           </section>
 
-          <section class="spacer-section">
+          <section class="spacer-section bg-project">
             <div className="container">
               <div className="row">
                 <div className="col-12">

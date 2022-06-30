@@ -49,7 +49,7 @@ const Project = ({ pageContext, data }) => {
             <section className="spacer-section">
                 <div className="container">
                     <div className="row">
-                        <div className="col-8 offset-2 t-center">
+                        <div className="col-12 col-md-8 offset-md-2 t-center">
                             <h3>Project background</h3>
                             <p>{data.project.projectBackground.projectBackground}</p>
                         </div>
@@ -60,10 +60,10 @@ const Project = ({ pageContext, data }) => {
             <section className="spacer-section">
                 <div className="container">
                     <div className="row">
-                        <div className="col-6">
+                        <div className="col-12 col-md-6">
                             <GatsbyImage image={data.project.secondaryImage.gatsbyImageData} alt={data.project.projectName + ' secondary project image'} />
                         </div>
-                        <div className="col-5 offset-1 align-self-center">
+                        <div className="col-12 col-md-5 offset-md-1 align-self-center sm-spacer">
                             <h3>Technology stack</h3>
                             {data.project.technologyStack.technologyStack}
                         </div>
