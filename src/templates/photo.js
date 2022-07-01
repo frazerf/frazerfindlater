@@ -28,7 +28,12 @@ const Photo = ({ data }) => {
                         <div className="col-12 col-md-3 align-self-center">
                             <div className="content-meta ">
                                 <p className="large mb-8 bold">{data.photo.title}</p>
-                                <p className="small">{data.photo.cameraMeta}</p>
+                                <p className="small mb-0">{data.photo.cameraMeta}</p>
+                                {data.photo.content !== null && (
+                                    <div className="mt-20">
+                                        <p>{data.photo.content.content}</p>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -50,6 +55,9 @@ export const pageQuery = graphql`
             title
             photo {
                 gatsbyImageData
+            }
+            content {
+                content
             }
         }
     }
