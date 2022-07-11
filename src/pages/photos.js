@@ -17,9 +17,9 @@ class SecondPage extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-12 col-md-9">
-                <p className="large mb-0">About</p>
-                <h2>Lorem ipsum</h2>
-                <p className="large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p className="large mb-0">Moments</p>
+                <h2>A snapshot of life</h2>
+                <p className="large">Sometimes words but more often photos. Here you’ll get a small glimpse into the exciting and mundane moments of my life.</p>
               </div>
             </div>
           </div>

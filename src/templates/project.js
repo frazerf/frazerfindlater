@@ -3,9 +3,32 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Seo from "../components/seo"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 const Project = ({ pageContext, data }) => {
     const { next, previous } = pageContext
+    const Bold = ({ children }) => <span className="bold">{children}</span>
+    const Text = ({ children }) => <p>{children}</p>
+    const options = {
+    renderMark: {
+        [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+    },
+    renderNode: {
+        [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+        [BLOCKS.EMBEDDED_ASSET]: node => {
+        return (
+            <>
+            <h2>Embedded Asset</h2>
+            <pre>
+                <code>{JSON.stringify(node, null, 2)}</code>
+            </pre>
+            </>
+        )
+        },
+    },
+}
+   
     return (
         <Layout>
             <Seo title={data.project.projectName} />
@@ -28,7 +51,12 @@ const Project = ({ pageContext, data }) => {
                             {data.project.projectMeta.map(node => (
                                 <div className="col-12 col-md-2" key={node.id}>
                                     <p className="large mb-8 bold">{node.projectMetaTitle}</p>
-                                    <p className="small">{node.projectMetaContent.projectMetaContent}</p>
+                                    {node.projectMetaContent !== null && (
+                                        <p className="small">{node.projectMetaContent.projectMetaContent}</p>
+                                    )}
+                                    {node.linkText !== null && (
+                                        <p className="small"><a rel="noreferrer" target="_blank" href={node.url}>{node.linkText} →</a></p>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -46,41 +74,49 @@ const Project = ({ pageContext, data }) => {
                 </div>
             </section>
 
+            {data.project.aboutTheProject !== null && (
             <section className="spacer-section">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-8 offset-md-2 t-center">
                             <h3>Project background</h3>
-                            <p>{data.project.projectBackground.projectBackground}</p>
+                            {renderRichText(data.project.aboutTheProject, options)}
                         </div>
                     </div>
                 </div>
             </section>
+            )}
 
-            <section className="spacer-section">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 col-md-6">
-                            <GatsbyImage image={data.project.secondaryImage.gatsbyImageData} alt={data.project.projectName + ' secondary project image'} />
-                        </div>
-                        <div className="col-12 col-md-5 offset-md-1 align-self-center sm-spacer">
-                            <h3>Technology stack</h3>
-                            {data.project.technologyStack.technologyStack}
+            {data.project.aboutTheTech !== null && (
+                <section className="spacer-section">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12 col-md-6">
+                                <GatsbyImage image={data.project.secondaryImage.gatsbyImageData} alt={data.project.projectName + ' secondary project image'} />
+                            </div>
+                            <div className="col-12 col-md-5 offset-md-1 align-self-center sm-spacer">
+                                <h3>Technology stack</h3>
+                                {renderRichText(data.project.aboutTheTech, options)}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
 
-            <section className="spacer-section">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 col-md-8">
-                            <h3>About the build</h3>
-                            {data.project.aboutTheBuild.aboutTheBuild}
+            {data.project.aboutTheBuilds !== null && (
+                <section className="spacer-section">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12 col-md-8">
+                                <h3>About the build</h3>
+                                {renderRichText(data.project.aboutTheBuilds, options)}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
+
+            
 
             <section className="spacer-section">
                 <div className="container">
@@ -137,30 +173,32 @@ export const pageQuery = graphql`
             parentCompany
             projectName
             slug
-            aboutTheBuild {
-            aboutTheBuild
-            }
             projectOpeningText {
-            projectOpeningText
+                projectOpeningText
             }
             primaryImage {
-            gatsbyImageData
-            }
-            projectBackground {
-            projectBackground
+                gatsbyImageData
             }
             secondaryImage {
-            gatsbyImageData
-            }
-            technologyStack {
-            technologyStack
+                gatsbyImageData
             }
             tertiaryImage {
-            gatsbyImageData
+                gatsbyImageData
+            }
+            aboutTheTech {
+                raw
+            }
+            aboutTheProject {
+                raw
+            }
+            aboutTheBuilds {
+                raw
             }
             projectMeta {
                 id
                 projectMetaTitle
+                linkText
+                url
                 projectMetaContent {
                     projectMetaContent
                 }

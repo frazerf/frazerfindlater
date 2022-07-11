@@ -11,10 +11,10 @@ class Contact extends React.Component {
         <section className="hero hero--simple">
           <div className="container">
             <div className="row">
-              <div className="col-12 col-md-6">
+              <div className="col-12 col-md-7">
                 <p className="large mb-0">Contact</p>
                 <h2>Get in touch</h2>
-                <p className="large">Just fill out the form below and I’ll be in touch as soon as possbile.</p>
+                <p className="large">Do you have an exciting project you’d like brought to life or simply looking to say hello? Feel free to fill out the form below and I’ll be in touch as soon as possible.</p>
               </div>
             </div>
           </div>

@@ -14,8 +14,8 @@ class Thanks extends React.Component {
             <div className="row">
               <div className="col-12 col-md-6">
                 <p className="large mb-0">Contact</p>
-                <h2>Thanks</h2>
-                <p className="large">Just fill out the form below and I’ll be in touch as soon as possbile.</p>
+                <h2>Thanks for dropping a line</h2>
+                <p className="large">I'll be in touch in 5 minutes.</p>
               </div>
             </div>
           </div>

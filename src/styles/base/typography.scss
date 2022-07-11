@@ -52,10 +52,15 @@ h1, h2, h3 {
 .p {
   margin: 0 0 2.0rem 0;
   letter-spacing: -0.04rem;
+  line-height: 2.8rem;
+  @include media-breakpoint-up(md) {
+    line-height: 3.2rem;
+  }
   &.small {
     font-size: 1.4rem;
     color: $font-secondary;
     margin: 0 0 0.4rem 0;
+    line-height: 2.4rem;
   }
   &.large {
     font-size: 1.8rem;

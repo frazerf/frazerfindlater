@@ -17,9 +17,9 @@ class SecondPage extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-12 col-md-9">
-                <p className="large mb-0">About</p>
-                <h2>Lorem ipsum</h2>
-                <p className="large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p className="large mb-0">Projects</p>
+                <h2>Case studies, side projects &amp; learnings.</h2>
+                <p className="large">A selection of projects and side projects I've led  and been involved with over the years. Here you'll get a deeper understanding of the background and technology behind these projects.</p>
               </div>
             </div>
           </div>
@@ -38,8 +38,6 @@ class SecondPage extends React.Component {
                   </div>
                   <div className="content-meta">
                     <p className="large mb-8 bold"><Link to={'/projects/' + node.slug}>{node.projectName}</Link></p>
-                    <p className="small">Salesforce - Ecommerce</p>
-                    <p className="small">Javascript •  React •  Sass </p>
                   </div>
                 </div>
                 )
@@ -56,7 +54,7 @@ export default SecondPage
 
 export const pageQuery = graphql`
   query allProjectsQuery {
-    allContentfulProjectPage {
+    allContentfulProjectPage(sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
           parentCompany
