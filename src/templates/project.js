@@ -36,7 +36,6 @@ const Project = ({ pageContext, data }) => {
                 <div className="container">
                     <div className="row">
                     <div className="col-12 col-md-9">
-                        <p className="large mb-0">{data.project.parentCompany}</p>
                         <h2>{data.project.projectName}</h2>
                         <p className="large">{data.project.projectOpeningText.projectOpeningText}</p>
                     </div>
@@ -170,7 +169,6 @@ export const pageQuery = graphql`
     query($slug: String!) {
         project: contentfulProjectPage(slug: {eq: $slug}) {
             slug
-            parentCompany
             projectName
             slug
             projectOpeningText {

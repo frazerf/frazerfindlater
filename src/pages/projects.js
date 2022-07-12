@@ -57,7 +57,6 @@ export const pageQuery = graphql`
     allContentfulProjectPage(sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
-          parentCompany
           projectName
           slug
           coverImage {

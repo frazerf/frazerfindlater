@@ -84,7 +84,6 @@ class IndexPage extends React.Component {
                     </Link>
                   </div>
                   <div className="content-meta">
-                    <p className="large mb-0"><Link to={'/projects/' + projectItem[1].node.slug}>{projectItem[0].node.parentCompany}</Link></p>
                     <h3><Link to={'/projects/' + projectItem[1].node.slug}>{projectItem[0].node.projectName}</Link></h3>
                   </div>
                 </div>
@@ -95,7 +94,6 @@ class IndexPage extends React.Component {
                     </Link>
                   </div>
                   <div className="content-meta">
-                    <p className="large mb-0"><Link to={'/projects/' + projectItem[1].node.slug}>{projectItem[1].node.parentCompany}</Link></p>
                     <h3><Link to={'/projects/' + projectItem[1].node.slug}>{projectItem[1].node.projectName}</Link></h3>
                   </div>
                 </div>
@@ -106,7 +104,6 @@ class IndexPage extends React.Component {
                     </Link>
                   </div>
                   <div className="content-meta">
-                    <p className="large mb-0"><Link to={'/projects/' + projectItem[2].node.slug}>{projectItem[2].node.parentCompany}</Link></p>
                     <h3><Link to={'/projects/' + projectItem[2].node.slug}>{projectItem[2].node.projectName}</Link></h3>
                   </div>
                 </div>
@@ -150,7 +147,6 @@ export const pageQuery = graphql`
     allContentfulProjectPage(sort: { fields: [createdAt], order: DESC }, limit: 3) {
       edges {
         node {
-          parentCompany
           projectName
           slug
           coverImage {

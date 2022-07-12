@@ -11,12 +11,10 @@ exports.createPages = async ({ graphql, actions }) => {
                 slug
               }
               next {
-                parentCompany
                 projectName
                 slug
               }
               previous {
-                parentCompany
                 projectName
                 slug
               }
