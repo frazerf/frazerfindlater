@@ -10,6 +10,7 @@ class IndexPage extends React.Component {
     const photoItem = this.props.data.allContentfulPhotoPage.edges
     const homepageMeta = this.props.data.allContentfulHomepage.nodes
     const projectItem = this.props.data.allContentfulProjectPage.edges
+    const totalItem = this.props.data.allContentfulProjectPage
 
     return (
       <Layout>
@@ -72,7 +73,7 @@ class IndexPage extends React.Component {
                 <div className="col-12">
                   <div className="d-flex justify-content-between align-items-center">
                     <h2>Projects</h2>
-                    <p><Link className="t-underline" to="/projects/">View all</Link></p>
+                    <p><Link className="t-underline" to="/projects/">View {totalItem.totalCount - 3} more projects</Link></p>
                   </div>
                 </div>
               </div>
@@ -145,6 +146,7 @@ export const pageQuery = graphql`
       }
     }
     allContentfulProjectPage(sort: { fields: [createdAt], order: DESC }, limit: 3) {
+      totalCount
       edges {
         node {
           projectName

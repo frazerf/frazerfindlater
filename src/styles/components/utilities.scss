@@ -112,10 +112,5 @@
 }
 
 .container {
-    padding-left: 2.0rem;
-    padding-right: 2.0rem;
-    @include media-breakpoint-up(md) {
-        padding-left: 2.0rem;
-        padding-right: 2.0rem;
-    }
+    max-width: 96% !important;
 }
